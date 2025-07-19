@@ -20,7 +20,6 @@
         <sonar.host.url>http://51.20.115.99:9000/</sonar.host.url>
         <sonar.token>sqa_8bed1b251aa364d71c262a26ba997dec1e68c1f1</sonar.token>
         <sonar.sources>src/main/java</sonar.sources>
-        <sonar.tests>src/test/java</sonar.tests>
         <sonar.java.binaries>target/classes</sonar.java.binaries>
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <sonar.inclusions>src/main/java/**/*.java</sonar.inclusions>
