@@ -1,9 +1,7 @@
 node {
     def mavenhome = tool name: 'maven-3.9.1', type: 'maven'
 
-  options {
-  buildDiscarder ( numToKeepStr: '5')
-}
+  
 
 
     stage("Git clone") {
