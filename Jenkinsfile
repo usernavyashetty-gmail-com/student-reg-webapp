@@ -59,14 +59,26 @@ pipeline {
     post {
         success {
             script {
-                sendEmail("${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - SUCCESS",
-                          "Build Status: SUCCESS. Please check the console output at ${env.BUILD_URL} for more details.")
+                sendEmail(
+                    "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - SUCCESS",
+                    """Hi Team,<br><br>
+                    Build is successful.<br>
+                    Please find the logs at <a href='${env.BUILD_URL}'>Build Console Output</a>.<br><br>
+                    Regards,<br>
+                    Jenkins Pipeline"""
+                )
             }
         }
         failure {
             script {
-                sendEmail("${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - FAILURE",
-                          "Build Status: FAILURE. Please check the console output at ${env.BUILD_URL} for more details.")
+                sendEmail(
+                    "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - FAILURE",
+                    """Hi Team,<br><br>
+                    Build has failed.<br>
+                    Please check the logs at <a href='${env.BUILD_URL}'>Build Console Output</a>.<br><br>
+                    Regards,<br>
+                    Jenkins Pipeline"""
+                )
             }
         }
     }
@@ -76,7 +88,7 @@ def sendEmail(String subject, String body) {
     emailext(
         subject: subject,
         body: body,
-        to: 'Usernavyashetty@gmail.com',
+        to: 'Navya.d-shetty@capgemini.com',
         mimeType: 'text/html'
     )
 }
